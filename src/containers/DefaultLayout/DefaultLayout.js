@@ -1,7 +1,9 @@
 import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux'
 
 import {
   AppAside,
@@ -34,6 +36,8 @@ class DefaultLayout extends Component {
   }
 
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to='/login' /> 
     return (
       <div className="app">
         <AppHeader fixed>
@@ -89,4 +93,11 @@ class DefaultLayout extends Component {
   }
 }
 
-export default DefaultLayout;
+const mapStateToProps = (state) => {
+  // console.log(state);
+  return{
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(DefaultLayout)

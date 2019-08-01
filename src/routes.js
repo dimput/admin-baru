@@ -34,9 +34,16 @@ const Colors = React.lazy(() => import('./views/Theme/Colors'));
 const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
+const Agents = React.lazy(() => import('./views/Users/Agents'));
+const Investors = React.lazy(() => import('./views/Users/Investors'));
+const Admins = React.lazy(() => import('./views/Users/Admins'));
 const User = React.lazy(() => import('./views/Users/User'));
 const Promo = React.lazy(() => import('./views/Promo/Promos'));
 const Promos = React.lazy(() => import('./views/Promo/Promo'));
+const Wisata = React.lazy(() => import('./views/Wisata/Wisataku'));
+const Blog = React.lazy(() => import('./views/Blog/Blogku'));
+const PWisata = React.lazy(() => import('./views/Paket/Wisata'));
+const Pemesanan = React.lazy(() => import('./views/Pemesanan/Pemesananku'));
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -81,8 +88,15 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/promo', name:'Promo' , component: Promo},
+  { path: '/admins', exact: true,  name: 'Users', component: Admins },
+  { path: '/investors', exact: true,  name: 'Users', component: Investors },
+  { path: '/agents', exact: true,  name: 'Users', component: Agents },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/promo', name:'Promo' , component: Promo},
+  { path: '/tempat-wisata', name:'Tempat-Wisata' , component: Wisata},
+  { path: '/paket-wisata', name:'Paket-Wisata' , component: PWisata},
+  { path: '/blog', name:'Blog' , component: Blog},
+  { path: '/pemesanan', name:'Pemesanan' , component: Pemesanan},
 ];
 
 export default routes;

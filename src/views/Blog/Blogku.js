@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import axios from 'axios';
 
-import promosData from './PromosData'
-
 function UserRow(props) {
   const promo = props.promo
   const promoLink = `/promoss/${promo.id}`
@@ -55,7 +53,7 @@ function PromoTable(props) {
 
 
 
-class Promos extends Component {
+class Blogku extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,7 +97,7 @@ class Promos extends Component {
           <Col xl={12} m={12}>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Promo
+                <i className="fa fa-align-justify"></i> Tempat Wisata
               </CardHeader>
               <CardBody>
                 <Table responsive hover>
@@ -129,4 +127,4 @@ class Promos extends Component {
   }
 }
 
-export default Promos;
+export default Blogku;

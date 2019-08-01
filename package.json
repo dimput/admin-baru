@@ -23,6 +23,7 @@
     "core-js": "^3.1.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "firebase": "^6.3.3",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.12.0",
@@ -31,10 +32,15 @@
     "react-app-polyfill": "^1.0.1",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-redux-firebase": "^2.3.0",
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-test-renderer": "^16.8.6",
     "reactstrap": "^8.0.0",
+    "redux": "^4.0.4",
+    "redux-firestore": "^0.8.0",
+    "redux-thunk": "^2.3.0",
     "simple-line-icons": "^2.4.1"
   },
   "devDependencies": {
