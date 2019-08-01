@@ -33,7 +33,7 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form onSubmit={this.submit}>
                       <h1 style={{ textAlign: "center" }}>Login</h1>
                       <p className="text-muted" style={{ textAlign: "center" }}>Sign In to your account</p>
                       <InputGroup className="mb-3">
