@@ -8,6 +8,7 @@ import logo from './logoL.png'
 import sygnet from './logoM.png'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
+import firebase from '../../config/fbConfig.js';
 
 const propTypes = {
   children: PropTypes.node,
@@ -16,6 +17,35 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {nama: ""};
+
+    this.database = firebase.database();
+    this.user = firebase.auth().currentUser;
+    if (this.user) {
+
+      // console.log(this.state.email)
+      var uid = this.user.uid;
+      var ref = this.database.ref("Users/" + uid);
+      var nama = ""
+
+      ref.on("value", function (snapshot) {
+        // console.log(snapshot.val().isAdmin);
+        // console.log("asuu"+snapshot.val())
+        // console.log("bukan admin"+snapshot.val().isAdmin);
+        nama= snapshot.val().isAdmin;
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
+      this.setState({
+        nama : nama
+      })
+    }
+  }
+  nama = () => {
+    console.log(this.state.nama)
+  }
   render() {
 
     // eslint-disable-next-line
@@ -41,6 +71,7 @@ class DefaultHeader extends Component {
             <NavLink to="#" className="nav-link">Settings</NavLink>
           </NavItem>
         </Nav> */}
+        {this.nama}
         <Nav className="ml-auto" navbar>
           {/* <NavItem className="d-md-down-none">
             <NavLink to="#" className="nav-link"><i className="icon-bell"></i><Badge pill color="danger">5</Badge></NavLink>

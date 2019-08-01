@@ -3,7 +3,9 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 // import { Redirect } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { signOut } from '../../store/actions/authActions'
+
 
 import {
   AppAside,
@@ -21,18 +23,57 @@ import {
 import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
+import firebase from '../../config/fbConfig.js';
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
+  constructor(props) {
+    super(props);
+    // this.database = firebase.database();
+    // this.user = firebase.auth().currentUser;
+    // console.log(this.user)
+
+    // // console.log(this.state.email)
+    // var uid = this.user.uid;
+    // var ref = this.database.ref("Users/"+uid);
+    // var isAdmin = 0;
+    
+    // ref.on("value", function (snapshot) {
+    //   // console.log(snapshot.val().isAdmin);
+    //   // console.log("asuu"+snapshot.val())
+    //   console.log("bukan admin"+snapshot.val().isAdmin);
+    //   isAdmin= snapshot.val().isAdmin;
+    // }, function (errorObject) {
+    //   console.log("The read failed: " + errorObject.code);
+    // });
+    // console.log(isAdmin+"asuu")
+    // if(isAdmin==0){
+    //   this.props.signOut()
+    // }else {
+    //   // console.log("admin")
+    // }
+  }
+  componentDidMount(){
+
+  }
+  
+  // keluar(){
+
+  //   if(isAdmin==0){
+  //     this.props.signOut()
+  //   }else {
+  //     // console.log("admin")
+  //   }
+  // }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
     const { auth } = this.props;
-    if (!auth.uid) return <Redirect to='/login' /> 
+    if (!auth.uid) return <Redirect to='/login' />
     return (
       <div className="app">
         <AppHeader fixed>
@@ -94,5 +135,10 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
 
-export default connect(mapStateToProps)(DefaultLayout)
+export default connect(mapStateToProps,mapDispatchToProps)(DefaultLayout)

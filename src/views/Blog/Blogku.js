@@ -40,12 +40,15 @@ function PromoTable(props) {
   // }
 
   return (
-    <tr>
-      {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{user.image}</td>
-      <td>{user.Nama_Wisata}</td>
-      <td>hehek</td>
+    <tr key={user.id.toString()}>
+      
+        {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
+        {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
+        <td>{user.id}</td>
+        <td><Link to={"blog/"+((user.id)-1).toString()}>{user.judul}</Link></td>
+        <td>{user.author}</td>
+        <td>{user.date}</td>
+      
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
@@ -78,7 +81,7 @@ class Blogku extends Component {
 
   componentDidMount() {
     axios
-      .get("https://antarwisata-1dd73.firebaseio.com/Promo.json")
+      .get("https://antarwisata-1dd73.firebaseio.com/blogs.json")
       .then(response => {
         const data = Object.values(response.data);
         this.setState({ personku: data });
@@ -97,17 +100,17 @@ class Blogku extends Component {
           <Col xl={12} m={12}>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Tempat Wisata
+                <i className="fa fa-align-justify"></i> Blog
               </CardHeader>
               <CardBody>
                 <Table responsive hover>
                   <thead>
                     <tr>
-                      {/* <th scope="col">nama</th> */}
-                      <th scope="col">name</th>
-                      <th scope="col">email</th>
+                      <th scope="col">Id</th>
+                      <th scope="col">Judul</th>
+                      <th scope="col">Author</th>
                       {/* {/* <th scope="col">role</th> */}
-                      <th scope="col">No Telp</th>
+                      <th scope="col">Tanggal</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -117,7 +120,7 @@ class Blogku extends Component {
                     )}
                   </tbody>
                 </Table>
-                
+
               </CardBody>
             </Card>
           </Col>
