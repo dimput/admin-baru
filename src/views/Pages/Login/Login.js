@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { connect } from 'react-redux'
+import { signIn } from '../../../store/actions/authActions'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -11,13 +14,17 @@ class Login extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
+    // console.log(this.state.email)
   }
-  submit(e) {
+  submit = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    console.log("login..."+this.state);
+    // console.log(this.state.email)
+    console.log("login..." + this.state);
+    this.props.signIn(this.state)
   }
   render() {
+    const { authError, auth } = this.props;
+    if (auth.uid) return <Redirect to='/' />
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -27,15 +34,15 @@ class Login extends Component {
                 <Card className="p-4">
                   <CardBody>
                     <Form>
-                      <h1 style={{textAlign:"center"}}>Login</h1>
-                      <p className="text-muted" style={{textAlign:"center"}}>Sign In to your account</p>
+                      <h1 style={{ textAlign: "center" }}>Login</h1>
+                      <p className="text-muted" style={{ textAlign: "center" }}>Sign In to your account</p>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" id="email" onChange={this.handleChange}/>
+                        <Input type="text" placeholder="Username" autoComplete="username" id="email" onChange={this.handleChange} />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -43,11 +50,14 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" id="password" onChange={this.handleChange}/>
+                        <Input type="password" placeholder="Password" autoComplete="current-password" id="password" onChange={this.handleChange} />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
                           <Button color="primary" className="px-4" onClick={this.submit}>Login</Button>
+                          <div className="center red-text">
+                            {authError ? <p>{authError}</p> : null}
+                          </div>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -76,5 +86,18 @@ class Login extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+    auth: state.firebase.auth
+  }
+}
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+// export default Login;
