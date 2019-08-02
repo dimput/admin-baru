@@ -21,7 +21,7 @@ class NewPost extends Component {
           <Col xl={12} m={12}>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> New Post
+                <i className="fa fa-align-justify"></i> New Blog
               </CardHeader>
               <CardBody>
                 <Container fluid className="main-content-container px-4 pb-4">
