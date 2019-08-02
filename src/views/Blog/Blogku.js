@@ -48,6 +48,7 @@ function PromoTable(props) {
         <td><Link to={"blog/"+((user.id)-1).toString()}>{user.judul}</Link></td>
         <td>{user.author}</td>
         <td>{user.date}</td>
+        <td><Link to={"edit/"+((user.id)-1).toString()}><Button color="primary">Edit</Button></Link></td>
       
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
@@ -114,6 +115,7 @@ class Blogku extends Component {
                       <th scope="col">Author</th>
                       {/* {/* <th scope="col">role</th> */}
                       <th scope="col">Tanggal</th>
+                      <th scope="col">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
