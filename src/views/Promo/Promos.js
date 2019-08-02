@@ -44,10 +44,10 @@ function PromoTable(props) {
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{user.image}</td>
+      <td>{user.IdPaket}</td>
       <td>{user.Nama_Wisata}</td>
-      <td>hehek</td>
+      <td>{user.image}</td>
+      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
@@ -106,10 +106,10 @@ class Promos extends Component {
                   <thead>
                     <tr>
                       {/* <th scope="col">nama</th> */}
-                      <th scope="col">name</th>
-                      <th scope="col">email</th>
+                      <th scope="col">id </th>
+                      <th scope="col">Nama Wisata</th>
                       {/* {/* <th scope="col">role</th> */}
-                      <th scope="col">No Telp</th>
+                      <th scope="col">Link Image</th>
                     </tr>
                   </thead>
                   <tbody>

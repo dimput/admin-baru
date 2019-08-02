@@ -43,9 +43,15 @@ function PromoTable(props) {
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{user.image}</td>
+      <td>{user.Id}</td>
       <td>{user.Nama_Wisata}</td>
-      <td>hehek</td>
+      <td>{user.Deskripsi}</td>
+      <td>{user.Harga}</td>
+      <td>{user.FasilitasMasjid}</td>
+      <td>{user.FasilitasParkir}</td>
+      <td>{user.Toilet}</td>
+      <td>{user.Tiket}</td>
+      
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
@@ -78,7 +84,7 @@ class Wisataku extends Component {
 
   componentDidMount() {
     axios
-      .get("https://antarwisata-1dd73.firebaseio.com/Promo.json")
+      .get("https://antarwisata-1dd73.firebaseio.com/List.json")
       .then(response => {
         const data = Object.values(response.data);
         this.setState({ personku: data });
@@ -104,10 +110,14 @@ class Wisataku extends Component {
                   <thead>
                     <tr>
                       {/* <th scope="col">nama</th> */}
-                      <th scope="col">name</th>
-                      <th scope="col">email</th>
-                      {/* {/* <th scope="col">role</th> */}
-                      <th scope="col">No Telp</th>
+                      <th scope="col">id</th>
+                      <th scope="col">nama wisata</th>
+                      <th scope="col">deskripsi</th> 
+                      <th scope="col">Harga</th>
+                      <th scope="col">Fasilitas Masjid</th>
+                      <th scope="col">Fasilitas Parkir</th>
+                      <th scope="col">Fasilitas Toilet</th>
+                      <th scope="col">Tiket</th>
                     </tr>
                   </thead>
                   <tbody>
