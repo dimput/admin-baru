@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 
 function UserRow(props) {
@@ -101,6 +101,9 @@ class Blogku extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Blog
+                <Link to="/newpost">
+                  <Button style={{float:"right"}}>Create Blog</Button>
+                </Link>
               </CardHeader>
               <CardBody>
                 <Table responsive hover>
