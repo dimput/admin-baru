@@ -81,7 +81,7 @@ export default {
     },
     ,
     {
-      name: 'Blog Web',
+      name: 'Blog',
       url: '/blog',
       icon: 'icon-direction',
     },

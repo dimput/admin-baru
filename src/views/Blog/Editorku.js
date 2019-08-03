@@ -8,6 +8,8 @@ import {
 
 import "react-quill/dist/quill.snow.css";
 import "../../assets/quill.css";
+import axios from 'axios';
+import firebase from './../../config/fbConfig'
 
 class Editorku extends Component {
   constructor(props) {
@@ -18,37 +20,77 @@ class Editorku extends Component {
     };
     this.wow = ""
   }
-  judul(){
-    const { user } = this.props;
-    console.log("judul"+user.judul)
-    return user.judul
-  }
   renderIsi = (e) => {
+    const { user } = this.props;
     e.preventDefault();
-    console.log(this.wow)
-    this.setState({
-      konten:this.wow
-    })
+    firebase.database().ref("blogs/"+user).update({
+      "judul":this.state.judul,
+      "konten":this.state.konten,
+      "status" :"Publish"
+    });
+  }
+
+  componentDidMount() {
+    const { match } = this.props;
+    const { user } = this.props;
+    axios
+      .get("https://antarwisata-1dd73.firebaseio.com/blogs/" + user + ".json")
+      .then(response => {
+        const data = Object.values(response.data);
+        // console.log(response.data)
+        this.setState(response.data);
+      });
+    // axios.get('https://curio-box.firebaseio.com/gambar/' + match.params.id + '.json')
+    //     .then(res => {
+    //         const gambar = res.data;
+    //         console.log(gambar);
+    //         this.setState({ gambar });
+    //     })
+    // .then(res => {
+    //     console.log("asu" + this.state.gambar.image);
+    //     storage.ref('images').child(this.state.gambar.image).getDownloadURL().then(url => {
+    //         console.log(url);
+    //         this.setState({
+    //             url: url
+    //         });
+    //     });
+    // })
   }
 
   handleChange = value => {
-    console.log(value);
-    this.wow = value;
+    // console.log(value);
+    this.setState({
+      konten:value
+    })
+  }
+  handleChangeku = (e) => {
+    // console.log(e.target.value);
+    this.setState({
+      judul:e.target.value
+    })
   }
 
   render() {
     const { user } = this.props;
     const kontenku = user.konten;
+
+
+    let judul = this.state;
+    let $judulku = null;
+    if (judul.judul) {
+      $judulku = judul;
+    }
+    const hasil = $judulku ? "isi" : "kosong";
     return (
       <Row>
         <Col lg={9}>
-            <Card small className="mb-3">
-              <Form className="add-new-post" onSubmit={this.renderIsi}>
+          <Card small className="mb-3">
+            <Form className="add-new-post" onSubmit={this.renderIsi}>
               <CardBody>
-                <FormInput size="lg" className="mb-3" placeholder="Your Post Title" value={this.judul()}/>
-                <ReactQuill className="add-new-post__editor mb-1" value={user.konten} onChange={this.handleChange} />
+                <FormInput size="lg" className="mb-3" value={this.state.judul} onChange={this.handleChangeku} />
+                <ReactQuill className="add-new-post__editor mb-1" value={this.state.konten} onChange={this.handleChange} />
               </CardBody>
-              </Form>
+            </Form>
             <br />
           </Card>
         </Col>
@@ -63,7 +105,7 @@ class Editorku extends Component {
                 <ListGroupItem className="p-3">
                   <span className="d-flex mb-2">
                     <i className="material-icons mr-1">flag</i>
-                    <strong className="mr-1">Status:</strong> Draft
+                    <strong className="mr-1">Status:</strong> {this.state.status}
                   </span>
                 </ListGroupItem>
                 <ListGroupItem className="d-flex px-3 border-0">

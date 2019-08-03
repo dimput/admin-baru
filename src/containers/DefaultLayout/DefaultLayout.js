@@ -6,7 +6,6 @@ import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions'
 
-
 import {
   AppAside,
   AppFooter,

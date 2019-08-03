@@ -30,6 +30,13 @@ function UserRow(props) {
 
 //baru
 function UserTable(props) {
+  const getBadge = (status) => {
+    return status === 'Active' ? 'success' :
+      status === 'Inactive' ? 'secondary' :
+        status === 'Pending' ? 'warning' :
+          status === 'Banned' ? 'danger' :
+            'primary'
+  }
   const user = props.user
   // const userLink = `/users/${user.id}`
 
@@ -47,7 +54,7 @@ function UserTable(props) {
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
       <td>{user.nama}</td>
       <td>{user.telp}</td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+      <td><Link to=""><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td>
     </tr>
   )
 }
@@ -106,8 +113,8 @@ class Users extends Component {
                     <tr>
                       {/* <th scope="col">nama</th> */}
                       <th scope="col">name</th>
-                      {/* {/* <th scope="col">role</th> */}
                       <th scope="col">No Telp</th>
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>

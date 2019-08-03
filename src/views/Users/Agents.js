@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table , Button} from 'reactstrap';
 import axios from 'axios';
 
 import usersData from './UsersData'
@@ -41,6 +41,7 @@ function UserTable(props) {
       <td>{user.email}</td>
       <td>{user.alamat}</td>
       <td>{user.bergabung_sejak}</td>
+      <td><Button color="primary" size="sm"><i className="material-icons">border_color</i></Button> <Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
@@ -84,10 +85,11 @@ class Agents extends Component {
                   <thead>
                     <tr>
                       <th scope="col">Id</th>
-                      <th scope="col">Pemilik</th>
+                      <th scope="col">Owner</th>
                       <th scope="col">Email</th>
-                      <th scope="col">Alamat<small className="text-muted">street</small></th>
-                      <th scope="col">Bergabung</th>
+                      <th scope="col">Address<small className="text-muted">street</small></th>
+                      <th scope="col">Since</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>

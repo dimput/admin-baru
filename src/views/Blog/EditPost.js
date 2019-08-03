@@ -4,29 +4,8 @@ import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Container } from 'r
 import Editorku from "./Editorku";
 import SidebarActions from "./SidebarActions";
 import SidebarCategories from "./SidebarCategories.js";
-import axios from 'axios';
 
 class EditPost extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            personku: []
-
-        }
-    }
-    componentDidMount() {
-        const { user } = this.props;
-        axios
-            .get("https://antarwisata-1dd73.firebaseio.com/blogs/" + this.props.match.params.id + ".json")
-            .then(response => {
-                // const data = Object.values(response.data);
-                this.setState({ personku: response.data });
-            });
-    }
-
-    hello= (e) => {
-        console.log("hello"+e)
-    }
     render() {
         return (
             <div className="animated fadeIn">
@@ -43,7 +22,7 @@ class EditPost extends Component {
                                     <Row>
                                         {/* Editor */}
                                         <Col lg="12" md="12">
-                                            <Editorku user={this.state.personku} />
+                                            <Editorku user={this.props.match.params.id} />
                                         </Col>
 
                                         {/* Sidebar Widgets */}
