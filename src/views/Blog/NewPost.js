@@ -36,7 +36,7 @@ class NewPost extends Component {
                     {/* Sidebar Widgets */}
                     <Col lg="3" md="12">
                       <SidebarActions />
-                      <SidebarCategories />
+                      {/* <SidebarCategories /> */}
                     </Col>
                   </Row>
                 </Container>

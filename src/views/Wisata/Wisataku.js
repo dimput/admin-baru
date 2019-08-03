@@ -45,11 +45,11 @@ function PromoTable(props) {
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
       <td>{user.Id}</td>
       <td>{user.Nama_Wisata}</td>
-      <td>{user.Deskripsi}</td>
-      <td>{user.Harga}</td>
-      <td>{user.FasilitasMasjid}</td>
-      <td>{user.FasilitasParkir}</td>
-      <td>{user.Toilet}</td>
+      {/* <td>{user.Deskripsi}</td> */}
+      {/* <td>{user.Harga}</td> */}
+      {/* <td>{user.FasilitasMasjid}</td> */}
+      {/* <td>{user.FasilitasParkir}</td> */}
+      <td>{user.Alamat}</td>
       <td>{user.Tiket}</td>
       
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
@@ -112,11 +112,7 @@ class Wisataku extends Component {
                       {/* <th scope="col">nama</th> */}
                       <th scope="col">id</th>
                       <th scope="col">nama wisata</th>
-                      <th scope="col">deskripsi</th> 
-                      <th scope="col">Harga</th>
-                      <th scope="col">Fasilitas Masjid</th>
-                      <th scope="col">Fasilitas Parkir</th>
-                      <th scope="col">Fasilitas Toilet</th>
+                      <th scope="col">Alamat</th>
                       <th scope="col">Tiket</th>
                     </tr>
                   </thead>

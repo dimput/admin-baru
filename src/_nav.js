@@ -68,12 +68,12 @@ export default {
       url: '/tempat-wisata',
       icon: 'icon-basket',
     },
-    ,
-    {
-      name: 'Promo',
-      url: '/promo',
-      icon: 'icon-fire',
-    },
+    // ,
+    // {
+    //   name: 'Promo',
+    //   url: '/promo',
+    //   icon: 'icon-fire',
+    // },
     {
       name: 'Paket Wisata',
       url: '/paket-wisata',

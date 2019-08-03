@@ -23,6 +23,10 @@ class EditPost extends Component {
                 this.setState({ personku: response.data });
             });
     }
+
+    hello= (e) => {
+        console.log("hello"+e)
+    }
     render() {
         return (
             <div className="animated fadeIn">
@@ -38,14 +42,14 @@ class EditPost extends Component {
 
                                     <Row>
                                         {/* Editor */}
-                                        <Col lg="9" md="12">
+                                        <Col lg="12" md="12">
                                             <Editorku user={this.state.personku} />
                                         </Col>
 
                                         {/* Sidebar Widgets */}
                                         <Col lg="3" md="12">
-                                            <SidebarActions />
-                                            <SidebarCategories />
+                                            {/* <SidebarActions/> */}
+                                            {/* <SidebarCategories /> */}
                                         </Col>
                                     </Row>
                                 </Container>

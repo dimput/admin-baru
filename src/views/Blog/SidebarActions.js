@@ -11,7 +11,7 @@ import {
   Button
 } from "shards-react";
 
-const SidebarActions = ({ title }) => (
+const SidebarActions = ({ title,edit }) => (
   <Card small className="mb-3">
     <CardHeader className="border-bottom">
       <h6 className="m-0">{title}</h6>
@@ -22,12 +22,12 @@ const SidebarActions = ({ title }) => (
         <ListGroupItem className="p-3">
           <span className="d-flex mb-2">
             <i className="material-icons mr-1">flag</i>
-            <strong className="mr-1">Status:</strong> Draft{" "}
-            <a className="ml-auto" href="#">
+            <strong className="mr-1">Status:</strong> Draft
+            {/* <a className="ml-auto" href="#">
               Edit
-            </a>
+            </a> */}
           </span>
-          <span className="d-flex mb-2">
+          {/* <span className="d-flex mb-2">
             <i className="material-icons mr-1">visibility</i>
             <strong className="mr-1">Visibility:</strong>{" "}
             <strong className="text-success">Public</strong>{" "}
@@ -46,14 +46,14 @@ const SidebarActions = ({ title }) => (
             <i className="material-icons mr-1">score</i>
             <strong className="mr-1">Readability:</strong>{" "}
             <strong className="text-warning">Ok</strong>
-          </span>
+          </span> */}
         </ListGroupItem>
         <ListGroupItem className="d-flex px-3 border-0">
-          <Button outline theme="accent" size="sm">
-            <i className="material-icons">save</i> Save Draft
+          <Button color="info" size="sm">
+            Save Draft
           </Button>
-          <Button theme="accent" size="sm" className="ml-auto">
-            <i className="material-icons">file_copy</i> Publish
+          <Button color="primary" size="sm" className="ml-auto">
+            Publish
           </Button>
         </ListGroupItem>
       </ListGroup>

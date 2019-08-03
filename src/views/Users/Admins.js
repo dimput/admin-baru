@@ -110,7 +110,7 @@ class Admins extends Component {
 
   componentDidMount() {
     axios
-      .get("https://antarwisata-1dd73.firebaseio.com/Users.json")
+      .get("https://antarwisata-1dd73.firebaseio.com/admin.json")
       .then(response => {
         const data = Object.values(response.data);
         this.setState({ personku: data });
