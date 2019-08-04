@@ -29,15 +29,15 @@ class NewPost extends Component {
 
                   <Row>
                     {/* Editor */}
-                    <Col lg="9" md="12">
+                    <Col lg="12" md="12">
                       <Editor />
                     </Col>
 
                     {/* Sidebar Widgets */}
-                    <Col lg="3" md="12">
-                      <SidebarActions />
+                    {/* <Col lg="3" md="12"> */}
+                      {/* <SidebarActions /> */}
                       {/* <SidebarCategories /> */}
-                    </Col>
+                    {/* </Col> */}
                   </Row>
                 </Container>
               </CardBody>

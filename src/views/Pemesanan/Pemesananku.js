@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import axios from 'axios';
+import firebase from './../../config/fbConfig'
 
 function UserRow(props) {
   const promo = props.promo
@@ -29,20 +30,22 @@ function UserRow(props) {
 //baru
 function PromoTable(props) {
   const user = props.user
+  
   // const userLink = `/users/${user.id}`
-
+  
   // const getBadge = (status) => {
-  //   return status === 'Active' ? 'success' :
+    //   return status === 'Active' ? 'success' :
   //     status === 'Inactive' ? 'secondary' :
   //       status === 'Pending' ? 'warning' :
   //         status === 'Banned' ? 'danger' :
   //           'primary'
   // }
-
+  
+  const {dimas} = props
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      <td><Link to={"pemesanan/"+user.id}>{user.namaLengkap}</Link></td>
+      <td><Link to={"pemesanan/"+dimas} user={user}>{user.namaLengkap}</Link></td>
       {/* <td>{user.namaLengkap}</td> */}
       <td>{user.alamatPenjemputan}</td>
       <td>{user.notelp}</td>
@@ -85,7 +88,29 @@ class Pemesananku extends Component {
       .then(response => {
         const data = Object.values(response.data);
         this.setState({ personku: data });
+        // this.setState( data );
+        console.log(data)
+        // this.setState({ personku: response });
       });
+    // var starCountRef = firebase.database().ref('Requests');
+    // starCountRef.on('value', function (snapshot) {
+    //   console.log(snapshot.val());
+    //   const messageObject = snapshot.val();
+
+    //   if (messageObject) {
+    //     const messageList = Object.keys(messageObject).map(key => ({
+    //       ...messageObject[key],
+    //       uid: key,
+    //     }));
+
+    //     this.setState({
+    //       messages: messageList
+    //     });
+    //   } else {
+    //     this.setState({ messages: null });
+    //   }
+    // });
+
   }
 
   render() {
@@ -119,11 +144,11 @@ class Pemesananku extends Component {
                   <tbody>
                     {this.state.personku.map((user, index) =>
                       // <UserRow key={index} user={user} />
-                      <PromoTable key={index} user={user} />
+                      <PromoTable key={index} user={user} dimas={index}/>
                     )}
                   </tbody>
                 </Table>
-                
+
               </CardBody>
             </Card>
           </Col>

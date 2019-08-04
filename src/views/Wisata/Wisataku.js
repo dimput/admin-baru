@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import axios from 'axios';
+import CurrencyFormat from 'react-currency-format';
 
 function UserRow(props) {
   const promo = props.promo
@@ -38,7 +39,7 @@ function PromoTable(props) {
   //         status === 'Banned' ? 'danger' :
   //           'primary'
   // }
-
+const cost = user.Tiket !=0 ? <CurrencyFormat value={user.Tiket} displayType={'text'} thousandSeparator={true} prefix={'Rp '} /> : "Free";
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
@@ -49,8 +50,8 @@ function PromoTable(props) {
       {/* <td>{user.Harga}</td> */}
       {/* <td>{user.FasilitasMasjid}</td> */}
       {/* <td>{user.FasilitasParkir}</td> */}
-      <td>{user.Alamat}</td>
-      <td>{user.Tiket}</td>
+      <td style={{width:"500px"}}>{user.Alamat}</td>
+      <td>{cost}</td>
       
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
