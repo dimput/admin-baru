@@ -47,6 +47,8 @@ const EditPost = React.lazy(() => import('./views/Blog/EditPost'));
 const BlogDetail = React.lazy(() => import('./views/Blog/BlogDetail'));
 const PWisata = React.lazy(() => import('./views/Paket/Wisata'));
 const Pemesanan = React.lazy(() => import('./views/Pemesanan/Pemesananku'));
+const DetailPemesanan = React.lazy(() => import('./views/Pemesanan/DetailPemesanan'));
+
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -100,7 +102,8 @@ const routes = [
   { path: '/paket-wisata', name:'Paket-Wisata' , component: PWisata},
   { path: '/blog', exact: true, name:'Blog' , component: Blog},
   { path: '/blog/:id', exact: true, name:'Blog Details' , component: BlogDetail},
-  { path: '/pemesanan', name:'Pemesanan' , component: Pemesanan},
+  { path: '/pemesanan',  exact: true,name:'Pemesanan' , component: Pemesanan},
+  { path: '/pemesanan/:id', exact: true, name:'Details Pemesanan' , component: DetailPemesanan},
   { path: '/newpost', name:'New Post' , component: NewPost},
   { path: '/edit/:id', name:'Edit Post' , component: EditPost},
 ];

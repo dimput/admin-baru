@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import PromosData from './PromosData'
+import PromosData from './DetailPemesanan'
 
-class Promo extends Component {
+class Pemesanan extends Component {
 
   render() {
 
@@ -43,4 +43,4 @@ class Promo extends Component {
   }
 }
 
-export default Promo;
+export default Pemesanan;

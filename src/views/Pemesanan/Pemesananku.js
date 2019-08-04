@@ -42,10 +42,13 @@ function PromoTable(props) {
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{user.image}</td>
-      <td>{user.Nama_Wisata}</td>
-      <td>hehek</td>
+      <td><Link to={"pemesanan/"+user.id}>{user.namaLengkap}</Link></td>
+      {/* <td>{user.namaLengkap}</td> */}
+      <td>{user.alamatPenjemputan}</td>
+      <td>{user.notelp}</td>
+      <td>{user.catatan}</td>
+      <td>{user.statusPesanan}</td>
+
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
@@ -78,7 +81,7 @@ class Pemesananku extends Component {
 
   componentDidMount() {
     axios
-      .get("https://antarwisata-1dd73.firebaseio.com/Promo.json")
+      .get("https://antarwisata-1dd73.firebaseio.com/Requests.json")
       .then(response => {
         const data = Object.values(response.data);
         this.setState({ personku: data });
@@ -103,11 +106,14 @@ class Pemesananku extends Component {
                 <Table responsive hover>
                   <thead>
                     <tr>
+
                       {/* <th scope="col">nama</th> */}
-                      <th scope="col">name</th>
-                      <th scope="col">email</th>
+                      <th scope="col">Nama </th>
+                      <th scope="col">Alamat</th>
                       {/* {/* <th scope="col">role</th> */}
                       <th scope="col">No Telp</th>
+                      <th scope="col">catatan</th>
+                      <th scope="col">statusPesanan</th>
                     </tr>
                   </thead>
                   <tbody>

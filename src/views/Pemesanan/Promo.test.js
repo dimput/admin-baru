@@ -1,7 +1,7 @@
 import React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import { mount } from 'enzyme'
-import Promo from './Promo';
+import Promo from './Pemesanan';
 
 
 it('renders without crashing', () => {
