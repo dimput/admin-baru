@@ -63,6 +63,7 @@ class Editorku extends Component {
       konten:value
     })
   }
+  
   handleChangeku = (e) => {
     // console.log(e.target.value);
     this.setState({
@@ -106,6 +107,10 @@ class Editorku extends Component {
                   <span className="d-flex mb-2">
                     <i className="material-icons mr-1">flag</i>
                     <strong className="mr-1">Status:</strong> {this.state.status}
+                  </span>
+                  <span className="d-flex mb-2">
+                    <i className="material-icons mr-1">people</i>
+                    <strong className="mr-1">Author:</strong> {this.state.author}
                   </span>
                 </ListGroupItem>
                 <ListGroupItem className="d-flex px-3 border-0">

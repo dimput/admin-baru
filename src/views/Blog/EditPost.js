@@ -14,7 +14,7 @@ class EditPost extends Component {
                         <Card>
                             <CardHeader>
                                 <i className="fa fa-align-justify"></i>Edit Post
-              </CardHeader>
+                            </CardHeader>
                             <CardBody>
                                 <Container fluid className="main-content-container px-4 pb-4">
                                     {/* Page Header */}

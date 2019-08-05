@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 import CurrencyFormat from 'react-currency-format';
 
@@ -41,19 +41,15 @@ function PromoTable(props) {
   // }
 const cost = user.Tiket !=0 ? <CurrencyFormat value={user.Tiket} displayType={'text'} thousandSeparator={true} prefix={'Rp '} /> : "Free";
   return (
+
     <tr>
-      {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
+ 
       <td>{user.Id}</td>
       <td>{user.Nama_Wisata}</td>
-      {/* <td>{user.Deskripsi}</td> */}
-      {/* <td>{user.Harga}</td> */}
-      {/* <td>{user.FasilitasMasjid}</td> */}
-      {/* <td>{user.FasilitasParkir}</td> */}
       <td style={{width:"500px"}}>{user.Alamat}</td>
       <td>{cost}</td>
-      
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+      <td><Link to={"edit/"+((user.id)-1).toString()}><Button color="primary">Edit</Button></Link></td>
+      <td><Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
     </tr>
   )
 }
@@ -115,6 +111,8 @@ class Wisataku extends Component {
                       <th scope="col">nama wisata</th>
                       <th scope="col">Alamat</th>
                       <th scope="col">Tiket</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Hapus</th>
                     </tr>
                   </thead>
                   <tbody>

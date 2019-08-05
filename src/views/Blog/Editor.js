@@ -61,7 +61,9 @@ class Editor extends Component {
       status: "Draft",
       date: this.state.date,
       konten: this.state.kontent,
-      ip_address : this.state.ip
+      author: this.state.author,
+      ip_address : this.state.ip,
+      image:this.state.image
     });
     firebase.database().ref('infoDataBlogs/').set({
       jumlah: this.state.infoData.jumlah + 1
@@ -76,7 +78,9 @@ class Editor extends Component {
       status: "Publish",
       date: this.state.date,
       konten: this.state.kontent,
-      ip_address : this.state.ip
+      author: this.state.author,
+      ip_address : this.state.ip,
+      image:this.state.image
     });
     firebase.database().ref('infoDataBlogs/').set({
       jumlah: this.state.infoData.jumlah + 1
@@ -87,6 +91,20 @@ class Editor extends Component {
     console.log(e.target.value);
     this.setState({
       judul: e.target.value
+    })
+  }
+
+  handleChangeLink = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      image: e.target.value
+    })
+  }
+
+  handleChangee = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      author: e.target.value
     })
   }
   handleChangeku = value => {
@@ -103,6 +121,8 @@ class Editor extends Component {
             <CardBody>
               <Form className="add-new-post">
                 <FormInput size="lg" className="mb-3" placeholder="Your Post Title" onChange={this.handleChange} />
+                <FormInput size="lg" className="mb-3" placeholder="Author" onChange={this.handleChangee} />
+                <FormInput size="lg" className="mb-3" placeholder="Image Header (Only Link)" onChange={this.handleChangeLink} />
                 <ReactQuill className="add-new-post__editor mb-1" onChange={this.handleChangeku} />
               </Form>
             </CardBody>
