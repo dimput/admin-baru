@@ -3,7 +3,7 @@ import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
 import PromosData from './PromosData'
 
-class Promo extends Component {
+class PaketDetail extends Component {
 
   render() {
 
@@ -43,4 +43,4 @@ class Promo extends Component {
   }
 }
 
-export default Promo;
+export default PaketDetail;

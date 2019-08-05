@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 
 import usersData from './UsersData'
@@ -101,6 +101,9 @@ class Investors extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Investors
+                <Link to="/newpost">
+                  <Button style={{float:"right"}} color="primary" size="sm">Tambah Investor</Button>
+                </Link>
               </CardHeader>
               <CardBody>
                 <Table responsive hover>

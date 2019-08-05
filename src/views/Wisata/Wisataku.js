@@ -101,6 +101,9 @@ class Wisataku extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Tempat Wisata
+                <Link to="/newpost">
+                  <Button style={{float:"right"}} color="primary" size="sm">Tambah Wisata</Button>
+                </Link>
               </CardHeader>
               <CardBody>
                 <Table responsive hover>

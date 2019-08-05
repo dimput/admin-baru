@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, Alert, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { connect } from 'react-redux'
 import { signIn } from '../../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
@@ -55,14 +55,15 @@ class Login extends Component {
                       <Row>
                         <Col xs="6">
                           <Button color="primary" className="px-4" onClick={this.submit}>Login</Button>
-                          <div className="center red-text">
-                            {authError ? <p>{authError}</p> : null}
-                          </div>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
                         </Col>
                       </Row>
+                      <br/>
+                      <div style={{ width: "100%",textAlign:"center" }}>
+                        {authError ? <Alert color="danger">{authError}</Alert> : null}
+                      </div>
                     </Form>
                   </CardBody>
                 </Card>

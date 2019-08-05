@@ -79,6 +79,9 @@ class Agents extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Agents 
+                <Link to="/newpost">
+                  <Button style={{float:"right"}} color="primary" size="sm">Tambah Agents</Button>
+                </Link>
               </CardHeader>
               <CardBody>
                 <Table responsive hover>

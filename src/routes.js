@@ -36,7 +36,7 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const Agents = React.lazy(() => import('./views/Users/Agents'));
 const Investors = React.lazy(() => import('./views/Users/Investors'));
-const Admins = React.lazy(() => import('./views/Users/Admins'));
+const Admins = React.lazy(() => import('./views/Users/Admins'));  
 const User = React.lazy(() => import('./views/Users/User'));
 const Promo = React.lazy(() => import('./views/Promo/Promos'));
 const Promos = React.lazy(() => import('./views/Promo/Promo'));
@@ -49,6 +49,7 @@ const BlogDetail = React.lazy(() => import('./views/Blog/BlogDetail'));
 const PWisata = React.lazy(() => import('./views/Paket/Wisata'));
 const Pemesanan = React.lazy(() => import('./views/Pemesanan/Pemesananku'));
 const DetailPemesanan = React.lazy(() => import('./views/Pemesanan/DetailPemesanan'));
+const DetailPaket = React.lazy(() => import('./views/Paket/PaketDetail'));
 
 
 
@@ -108,6 +109,7 @@ const routes = [
   { path: '/newpost', name:'New Post' , component: NewPost},
   { path: '/edit/:id', name:'Edit Post' , component: EditPost},
   { path: '/WisataEdit/:id', exact: true, name:'Edit Tempat Wisata' , component : WisataEdit},
+  { path: '/paket-wisata/:id', exact: true, name:'Detail Paket Wisata' , component : DetailPaket},
 ];
 
 export default routes;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactQuill from "react-quill";
+import {Redirect, Link} from "react-router-dom";
 import { Card, CardBody, Form, FormInput, Col, Row, CardHeader, ListGroup, Button, ListGroupItem } from "shards-react";
 
 import "react-quill/dist/quill.snow.css";
@@ -8,6 +9,9 @@ import firebase from './../../config/fbConfig'
 import axios from 'axios';
 
 class Editor extends Component {
+  state = {
+    redirect: false
+  }
   constructor(props) {
     super(props);
     firebase.database().ref('infoDataBlogs/jumlah').on('value', function (snapshot) {
@@ -16,7 +20,7 @@ class Editor extends Component {
     this.setState({
       judul: "",
       kontent: "",
-      jumlah: null,
+      jumlah: null
     })
   }
 
@@ -68,6 +72,7 @@ class Editor extends Component {
     firebase.database().ref('infoDataBlogs/').set({
       jumlah: this.state.infoData.jumlah + 1
     });
+    this.setRedirect();
   }
   handlePublish = (e) => {
     console.log("Publish : " + this.state.judul);
@@ -80,11 +85,12 @@ class Editor extends Component {
       konten: this.state.kontent,
       author: this.state.author,
       ip_address : this.state.ip,
-      image:this.state.image
+      image:this.state.image,
     });
     firebase.database().ref('infoDataBlogs/').set({
       jumlah: this.state.infoData.jumlah + 1
     });
+    this.setRedirect();
   }
 
   handleChange = (e) => {
@@ -113,9 +119,21 @@ class Editor extends Component {
       kontent: value
     })
   }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/blog' push="asdas" />
+    }
+  }
   render() {
     return (
       <Row>
+        {this.renderRedirect()}
         <Col lg="9" md="12">
           <Card small className="mb-3">
             <CardBody>
