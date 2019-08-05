@@ -50,6 +50,7 @@ const PWisata = React.lazy(() => import('./views/Paket/Wisata'));
 const Pemesanan = React.lazy(() => import('./views/Pemesanan/Pemesananku'));
 const DetailPemesanan = React.lazy(() => import('./views/Pemesanan/DetailPemesanan'));
 const DetailPaket = React.lazy(() => import('./views/Paket/PaketDetail'));
+const AgentEdit = React.lazy(() => import('./views/Users/AgentEdit'));
 
 
 
@@ -110,6 +111,7 @@ const routes = [
   { path: '/edit/:id', name:'Edit Post' , component: EditPost},
   { path: '/WisataEdit/:id', exact: true, name:'Edit Tempat Wisata' , component : WisataEdit},
   { path: '/paket-wisata/:id', exact: true, name:'Detail Paket Wisata' , component : DetailPaket},
+  { path: '/AgentEdit/:id', exact: true, name:'Edit Travel Agent' , component : AgentEdit},
 ];
 
 export default routes;

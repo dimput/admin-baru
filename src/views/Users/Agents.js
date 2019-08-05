@@ -41,8 +41,9 @@ function UserTable(props) {
       <td>{user.email}</td>
       <td>{user.alamat}</td>
       <td>{user.bergabung_sejak}</td>
-      <td><Button color="primary" size="sm"><i className="material-icons">border_color</i></Button> <Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+      <td><Link to={"AgentEdit/"+user.id}><Button color="primary">Edit</Button></Link></td>
+      <td><Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
+     {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )
 }
@@ -92,7 +93,8 @@ class Agents extends Component {
                       <th scope="col">Email</th>
                       <th scope="col">Address<small className="text-muted">street</small></th>
                       <th scope="col">Since</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Hapus</th>  
                     </tr>
                   </thead>
                   <tbody>
