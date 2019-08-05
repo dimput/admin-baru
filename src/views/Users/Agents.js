@@ -36,7 +36,7 @@ function UserTable(props) {
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{user.id}</td>
+      <td><Link to="/">{user.id}</Link></td>
       <td>{user.pemilik}</td>
       <td>{user.email}</td>
       <td>{user.alamat}</td>

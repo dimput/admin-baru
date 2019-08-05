@@ -36,7 +36,7 @@ export default {
           icon: 'icon-plane',
         }
       ],
-    },    
+    },
     // Pemesanan
     {
       title: true,
@@ -87,9 +87,9 @@ export default {
     },
 
 
-    
-    
-    
+
+
+
     // 
     // {
     //   title: true,
@@ -148,11 +148,11 @@ export default {
     //       url: '/base/dropdowns',
     //       icon: 'icon-puzzle',
     //     },
-    //     {
-    //       name: 'Forms',
-    //       url: '/base/forms',
-    //       icon: 'icon-puzzle',
-    //     },
+    // {
+    //   name: 'Forms',
+    //   url: '/base/forms',
+    //   icon: 'icon-puzzle',
+    // },
     //     {
     //       name: 'Jumbotrons',
     //       url: '/base/jumbotrons',
