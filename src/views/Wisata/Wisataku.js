@@ -48,7 +48,7 @@ const cost = user.Tiket !=0 ? <CurrencyFormat value={user.Tiket} displayType={'t
       <td>{user.Nama_Wisata}</td>
       <td style={{width:"500px"}}>{user.Alamat}</td>
       <td>{cost}</td>
-      <td><Link to={"edit/"+((user.id)-1).toString()}><Button color="primary">Edit</Button></Link></td>
+      <td><Link to={"WisataEdit/"+user.Id}><Button color="primary">Edit</Button></Link></td>
       <td><Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
     </tr>
   )
