@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table , Button } from 'reactstrap';
+// import { Link } from 'react-router-dom';
+import { Card, CardBody, CardHeader, Col, Row, Table , } from 'reactstrap';
 import axios from 'axios';
 
-import promosData from './PromosData'
+// import promosData from './PromosData'
 
-function UserRow(props) {
-  const promo = props.promo
-  const promoLink = `/promoss/${promo.id}`
+// function UserRow(props) {
+//   const promo = props.promo
+//   const promoLink = `/promoss/${promo.id}`
 
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
+//   const getBadge = (status) => {
+//     return status === 'Active' ? 'success' :
+//       status === 'Inactive' ? 'secondary' :
+//         status === 'Pending' ? 'warning' :
+//           status === 'Banned' ? 'danger' :
+//             'primary'
+//   }
 
-  return (
-    <tr key={promo.id.toString()}>
-      <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
-      <td><Link to={promoLink}>{promo.name}</Link></td>
-      <td>{promo.registered}</td>
-      <td>{promo.role}</td>
+//   return (
+//     <tr key={promo.id.toString()}>
+//       <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
+//       <td><Link to={promoLink}>{promo.name}</Link></td>
+//       <td>{promo.registered}</td>
+//       <td>{promo.role}</td>
 
      
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
-}
+//       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+//     </tr>
+//   )
+// }
 
 //baru
 function PromoTable(props) {

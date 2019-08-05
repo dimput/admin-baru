@@ -31,12 +31,12 @@ class Editorku extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
+    // const { match } = this.props;
     const { user } = this.props;
     axios
       .get("https://antarwisata-1dd73.firebaseio.com/blogs/" + user + ".json")
       .then(response => {
-        const data = Object.values(response.data);
+        // const data = Object.values(response.data);
         // console.log(response.data)
         this.setState(response.data);
       });
@@ -73,7 +73,7 @@ class Editorku extends Component {
 
   render() {
     const { user } = this.props;
-    const kontenku = user.konten;
+    // const kontenku = user.konten;
 
 
     let judul = this.state;
@@ -81,7 +81,7 @@ class Editorku extends Component {
     if (judul.judul) {
       $judulku = judul;
     }
-    const hasil = $judulku ? "isi" : "kosong";
+    // const hasil = $judulku ? "isi" : "kosong";
     return (
       <Row>
         <Col lg={9}>

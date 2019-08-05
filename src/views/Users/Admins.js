@@ -95,7 +95,7 @@ class Admins extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Admins <small className="text-muted">example</small>
-                <Link to="/newpost">
+                <Link to="/Tambah/Admin">
                   <Button style={{float:"right"}} color="primary" size="sm">Tambah Admin</Button>
                 </Link>
               </CardHeader>

@@ -56,7 +56,7 @@ class WisataEdit extends Component {
   getAlamat(){
     if(this.state.mutiara){
       // console.log(this.state.dimas.namaLengkap + "adaaa")
-      return this.state.mutiara.alamat
+      return this.state.mutiara.address
     }
   }
   getId(){
@@ -68,12 +68,7 @@ class WisataEdit extends Component {
   getNama(){
     if(this.state.mutiara){
       // console.log(this.state.dimas.namaLengkap + "adaaa")
-      return this.state.mutiara.pemilik
-  }}
-  getTanggal(){
-    if(this.state.mutiara){
-      // console.log(this.state.dimas.namaLengkap + "adaaa")
-      return this.state.mutiara.bergabung_sejak
+      return this.state.mutiara.owner
   }}
   toggle() {
     this.setState({ collapse: !this.state.collapse });

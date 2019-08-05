@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
+import { Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 
-import usersData from './UsersData'
+// import usersData from './UsersData'
 
-function UserRow(props) {
-  const user = props.user
-  const userLink = `/users/${user.id}`
+// function UserRow(props) {
+//   const user = props.user
+//   const userLink = `/users/${user.id}`
 
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
+//   const getBadge = (status) => {
+//     return status === 'Active' ? 'success' :
+//       status === 'Inactive' ? 'secondary' :
+//         status === 'Pending' ? 'warning' :
+//           status === 'Banned' ? 'danger' :
+//             'primary'
+//   }
 
-  return (
-    <tr key={user.id.toString()}>
-      <th scope="row"><Link to={userLink}>{user.id}</Link></th>
-      <td><Link to={userLink}>{user.name}</Link></td>
-      <td>{user.registered}</td>
-      <td>{user.role}</td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
-}
+//   return (
+//     <tr key={user.id.toString()}>
+//       <th scope="row"><Link to={userLink}>{user.id}</Link></th>
+//       <td><Link to={userLink}>{user.name}</Link></td>
+//       <td>{user.registered}</td>
+//       <td>{user.role}</td>
+//       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+//     </tr>
+//   )
+// }
 
 //baru
 function UserTable(props) {
@@ -101,7 +101,7 @@ class Investors extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Investors
-                <Link to="/newpost">
+                <Link to="/Tambah/Investor">
                   <Button style={{float:"right"}} color="primary" size="sm">Tambah Investor</Button>
                 </Link>
               </CardHeader>

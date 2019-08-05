@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem } from 'reactstrap';
+// import { Link, NavLink } from 'react-router-dom';
+import { UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
+import { AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from './logoL.png'
 import sygnet from './logoM.png'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
-import firebase from '../../config/fbConfig.js';
+// import firebase from '../../config/fbConfig.js';
 
 const propTypes = {
   children: PropTypes.node,
@@ -17,40 +17,9 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {nama: ""};
-
-    this.database = firebase.database();
-    this.user = firebase.auth().currentUser;
-    if (this.user) {
-
-      // console.log(this.state.email)
-      var uid = this.user.uid;
-      var ref = this.database.ref("Users/" + uid);
-      var nama = ""
-
-      ref.on("value", function (snapshot) {
-        // console.log(snapshot.val().isAdmin);
-        // console.log("asuu"+snapshot.val())
-        // console.log("bukan admin"+snapshot.val().isAdmin);
-        // nama= snapshot.val().isAdmin;
-      }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-      });
-      this.setState({
-        nama : nama
-      })
-    }
-  }
-  nama = () => {
-    console.log(this.state.nama)
-  }
   render() {
 
     // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
-
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />

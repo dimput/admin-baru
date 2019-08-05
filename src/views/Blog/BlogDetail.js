@@ -15,15 +15,15 @@ class BlogDetail extends Component {
     axios
       .get("https://antarwisata-1dd73.firebaseio.com/blogs/"+this.props.match.params.id+".json")
       .then(response => {
-        const data = Object.values(response.data);
+        // const data = Object.values(response.data);
         this.setState({ personku: response.data });
       });
   }
   render() {
 
-    const promo = PromosData.find(promo => promo.id.toString() === this.props.match.params.id)
+    // const promo = PromosData.find(promo => promo.id.toString() === this.props.match.params.id)
 
-    const PromoDetails = promo ? Object.entries(promo) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
+    // const PromoDetails = promo ? Object.entries(promo) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
 
     return (
       <div className="animated fadeIn">

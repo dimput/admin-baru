@@ -3,30 +3,30 @@ import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import axios from 'axios';
 
-import usersData from './UsersData'
+// import usersData from './UsersData'
 
-function UserRow(props) {
-  const user = props.user
-  const userLink = `/users/${user.id}`
+// function UserRow(props) {
+//   const user = props.user
+//   const userLink = `/users/${user.id}`
 
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
+//   const getBadge = (status) => {
+//     return status === 'Active' ? 'success' :
+//       status === 'Inactive' ? 'secondary' :
+//         status === 'Pending' ? 'warning' :
+//           status === 'Banned' ? 'danger' :
+//             'primary'
+//   }
 
-  return (
-    <tr key={user.id.toString()}>
-      <th scope="row"><Link to={userLink}>{user.id}</Link></th>
-      <td><Link to={userLink}>{user.name}</Link></td>
-      <td>{user.registered}</td>
-      <td>{user.role}</td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
-}
+//   return (
+//     <tr key={user.id.toString()}>
+//       <th scope="row"><Link to={userLink}>{user.id}</Link></th>
+//       <td><Link to={userLink}>{user.name}</Link></td>
+//       <td>{user.registered}</td>
+//       <td>{user.role}</td>
+//       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+//     </tr>
+//   )
+// }
 
 //baru
 function UserTable(props) {
@@ -36,6 +36,20 @@ function UserTable(props) {
         status === 'Pending' ? 'warning' :
           status === 'Banned' ? 'danger' :
             'primary'
+  }
+  const getAction = (status) => {
+    return status === 'Active' ? 'danger' :
+      status === 'Inactive' ? 'success' :
+        status === 'Pending' ? 'success' :
+          status === 'Banned' ? 'success' :
+            'success'
+  }
+  const getActionText = (status) => {
+    return status === 'Active' ? 'BAN' :
+      status === 'Inactive' ? 'ACTIVE' :
+        status === 'Pending' ? 'ACTIVE' :
+          status === 'Banned' ? 'ACTIVE' :
+            'ACTIVE'
   }
   const user = props.user
   // const userLink = `/users/${user.id}`
@@ -55,6 +69,7 @@ function UserTable(props) {
       <td>{user.nama}</td>
       <td>{user.telp}</td>
       <td><Link to=""><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td>
+      <td><Link to=""><Badge color={getAction(user.status)}>{getActionText(user.status)}</Badge></Link></td>
     </tr>
   )
 }
@@ -94,7 +109,7 @@ class Users extends Component {
   }
 
   render() {
-    const data = this.state;
+    // const data = this.state;
     // const tampilData = this.state.personku!=null? "isi" : "kosong";
     // const userList = usersData.filter((user) => user.id < 10)
     // const userList = data.usersFirebase.filter((user) => user.id < 10)
@@ -115,6 +130,7 @@ class Users extends Component {
                       <th scope="col">name</th>
                       <th scope="col">No Telp</th>
                       <th scope="col">Status</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>

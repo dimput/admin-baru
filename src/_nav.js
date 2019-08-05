@@ -13,12 +13,11 @@ export default {
       name: 'USER',
       icon: 'icon-puzzle',
       children: [
-        {
-          name: 'Admin',
-          url: '/admins',
-          icon: 'icon-user',
-        },
-        ,
+        // {
+        //   name: 'Admin',
+        //   url: '/admins',
+        //   icon: 'icon-user',
+        // },
         {
           name: 'Investor',
           url: '/investors',
@@ -29,13 +28,12 @@ export default {
           url: '/users',
           icon: 'icon-people',
         },
-        ,
         {
           name: 'Agent',
           url: '/agents',
           icon: 'icon-plane',
         }
-      ],
+      ]
     },
     // Pemesanan
     {
@@ -79,7 +77,6 @@ export default {
       url: '/paket-wisata',
       icon: 'icon-direction',
     },
-    ,
     {
       name: 'Blog',
       url: '/blog',

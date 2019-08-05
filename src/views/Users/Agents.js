@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table , Button} from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 
 import usersData from './UsersData'
@@ -30,22 +30,37 @@ function UserRow(props) {
 
 //baru
 function UserTable(props) {
-  const user = props.user
+  const user = props.user;
 
-  return (
-    <tr>
-      {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
-      {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td><Link to="/">{user.id}</Link></td>
-      <td>{user.pemilik}</td>
-      <td>{user.email}</td>
-      <td>{user.alamat}</td>
-      <td>{user.bergabung_sejak}</td>
-      <td><Link to={"AgentEdit/"+user.id}><Button color="primary">Edit</Button></Link></td>
-      <td><Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
-     {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
+  const getBadge = (status) => {
+    return status === 'Active' ? 'success' :
+      status === 'Inactive' ? 'secondary' :
+        status === 'Pending' ? 'warning' :
+          status === 'Deleted' ? 'danger' :
+            'primary'
+  }
+  const getAction = (status) => {
+    return status === 'Active' ? <Button color="danger" size="sm"><i className="material-icons">delete</i></Button> :
+      status === 'Inactive' ? <Button color="danger" size="sm"><i className="material-icons">delete</i></Button> :
+        status === 'Pending' ? 'ACTIVE' :
+          status === 'Deleted' ? <Badge color={getBadge("Active")}>ACTIVE</Badge> :
+            'ACTIVE'
+  }
+
+    return (
+      <tr>
+        {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
+        {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
+        <td><Link to="/">{user.id}</Link></td>
+        <td>{user.owner}</td>
+        <td>{user.email}</td>
+        <td>{user.address}</td>
+        <td>{user.since}</td>
+        <td><Badge color={getBadge(user.status)}>{user.status}</Badge></td>
+        <td><Link to={"AgentEdit/" + (user.id - 1)}><Button color="primary">Edit</Button></Link></td>
+        <td>{getAction(user.status)}</td>
+      </tr>
+    )
 }
 
 
@@ -79,9 +94,9 @@ class Agents extends Component {
           <Col xl={12} m={12}>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Agents 
-                <Link to="/newpost">
-                  <Button style={{float:"right"}} color="primary" size="sm">Tambah Agents</Button>
+                <i className="fa fa-align-justify"></i> Agents
+                <Link to="/Tambah/Agent">
+                  <Button style={{ float: "right" }} color="primary" size="sm">Tambah Agents</Button>
                 </Link>
               </CardHeader>
               <CardBody>
@@ -93,8 +108,9 @@ class Agents extends Component {
                       <th scope="col">Email</th>
                       <th scope="col">Address<small className="text-muted">street</small></th>
                       <th scope="col">Since</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Edit</th>
-                      <th scope="col">Hapus</th>  
+                      <th scope="col">Hapus</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -104,7 +120,7 @@ class Agents extends Component {
                     )}
                   </tbody>
                 </Table>
-                
+
               </CardBody>
             </Card>
           </Col>

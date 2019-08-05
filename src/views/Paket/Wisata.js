@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
+import CurrencyFormat from 'react-currency-format';
 
 function UserRow(props) {
   const promo = props.promo
@@ -32,25 +33,28 @@ function PromoTable(props) {
   const dimas = props.dimas
   // const userLink = `/users/${user.id}`
 
-  // const getBadge = (status) => {
-  //   return status === 'Active' ? 'success' :
-  //     status === 'Inactive' ? 'secondary' :
-  //       status === 'Pending' ? 'warning' :
-  //         status === 'Banned' ? 'danger' :
-  //           'primary'
-  // }
+  const getBadge = (status) => {
+    return status === true ? (
+      <Badge color="danger">DELETED</Badge>
+    ):"";
+  }
 
+  console.log(user.isDelete);
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <td>{dimas}</td>
-      <td>{user.NamaPaket}</td>
+      <th scope="row"><Link to={"paket/"+dimas}>{dimas}</Link></th>
+      <td><Link to={"paket/"+dimas}>{user.NamaPaket} {getBadge(user.isDelete)}</Link></td>
       {/* <td>{user.Catatan}</td> */}
       {/* <td>{user.FasilitasTiket}</td>
       <td>{user.FasilitasTourGuide}</td>
       <td>{user.FasilitasTransportasi}</td> */}
-      <td>{user.Harga}</td>
+      <td><CurrencyFormat value={user.Harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} /></td>
+      <td>
+        <Link to={"/"+dimas}><Button size="small" color="primary" style={{marginRight:"5px"}}>Edit</Button></Link>
+        <Link to="/"><Button size="small" color="danger">Delete</Button></Link>
+      </td>
       {/* <td>{user.Informasi}</td>
       <td>{user.JadwalHari1}</td>
       <td>{user.JadwalHari2}</td>
@@ -109,7 +113,7 @@ class Wisata extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Tempat Wisata
-                <Link to="/newpost">
+                <Link to="/Tambah/PaketWisata">
                   <Button style={{float:"right"}} color="primary" size="sm">Tambah Paket Wisata</Button>
                 </Link>
               </CardHeader>
@@ -126,6 +130,7 @@ class Wisata extends Component {
                       {/* <th scope="col">Tour Gade</th>
                       <th scope="col">Transportasi</th> */}
                       <th scope="col">Harga</th>
+                      <th scope="col">Action</th>
                       {/* <th scope="col">Informasi</th>
                       <th scope="col">Hari 1</th>
                       <th scope="col">Hari 2</th>

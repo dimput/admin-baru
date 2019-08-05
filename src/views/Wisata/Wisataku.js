@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
+import { Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 import CurrencyFormat from 'react-currency-format';
 
-function UserRow(props) {
-  const promo = props.promo
-  const promoLink = `/promoss/${promo.id}`
+// function UserRow(props) {
+//   const promo = props.promo
+//   const promoLink = `/promoss/${promo.id}`
 
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
+//   const getBadge = (status) => {
+//     return status === 'Active' ? 'success' :
+//       status === 'Inactive' ? 'secondary' :
+//         status === 'Pending' ? 'warning' :
+//           status === 'Banned' ? 'danger' :
+//             'primary'
+//   }
 
-  return (
-    <tr key={promo.id.toString()}>
-      <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
-      <td><Link to={promoLink}>{promo.name}</Link></td>
-      <td>{promo.registered}</td>
-      <td>{promo.role}</td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
-}
+//   return (
+//     <tr key={promo.id.toString()}>
+//       <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
+//       <td><Link to={promoLink}>{promo.name}</Link></td>
+//       <td>{promo.registered}</td>
+//       <td>{promo.role}</td>
+//       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+//     </tr>
+//   )
+// }
 
 //baru
 function PromoTable(props) {
@@ -101,7 +101,7 @@ class Wisataku extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Tempat Wisata
-                <Link to="/newpost">
+                <Link to="/Tambah/TempatWisata">
                   <Button style={{float:"right"}} color="primary" size="sm">Tambah Wisata</Button>
                 </Link>
               </CardHeader>

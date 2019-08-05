@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Container } from 'reactstrap';
-import axios from 'axios';
+// import { Link } from 'react-router-dom';
+import { Card, CardBody, CardHeader, Col, Row, Container } from 'reactstrap';
+// import axios from 'axios';
 import Editor from "./Editor";
-import SidebarActions from "./SidebarActions";
-import SidebarCategories from "./SidebarCategories.js";
+// import SidebarActions from "./SidebarActions";
+// import SidebarCategories from "./SidebarCategories.js";
 
 class NewPost extends Component {
   constructor(props) {

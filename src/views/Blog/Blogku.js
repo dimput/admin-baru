@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
+import { Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
 import axios from 'axios';
 
-function UserRow(props) {
-  const promo = props.promo
-  const promoLink = `/promoss/${promo.id}`
+// function UserRow(props) {
+//   const promo = props.promo
+//   const promoLink = `/promoss/${promo.id}`
 
-  const getBadge = (status) => {
-    return status === 'Active' ? 'success' :
-      status === 'Inactive' ? 'secondary' :
-        status === 'Pending' ? 'warning' :
-          status === 'Banned' ? 'danger' :
-            'primary'
-  }
+//   const getBadge = (status) => {
+//     return status === 'Active' ? 'success' :
+//       status === 'Inactive' ? 'secondary' :
+//         status === 'Pending' ? 'warning' :
+//           status === 'Banned' ? 'danger' :
+//             'primary'
+//   }
 
-  return (
-    <tr key={promo.id.toString()}>
-      <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
-      <td><Link to={promoLink}>{promo.name}</Link></td>
-      <td>{promo.registered}</td>
-      <td>{promo.role}</td>
-      {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
-    </tr>
-  )
-}
+//   return (
+//     <tr key={promo.id.toString()}>
+//       <th scope="row"><Link to={promoLink}>{promo.id}</Link></th>
+//       <td><Link to={promoLink}>{promo.name}</Link></td>
+//       <td>{promo.registered}</td>
+//       <td>{promo.role}</td>
+//       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
+//     </tr>
+//   )
+// }
 
 //baru
 function PromoTable(props) {
@@ -48,6 +48,7 @@ function PromoTable(props) {
         <td><Link to={"blog/"+((user.id)-1).toString()}>{user.judul}</Link></td>
         <td>{user.author}</td>
         <td>{user.date}</td>
+        <td>{user.status}</td>
         <td><Link to={"edit/"+((user.id)-1).toString()}><Button color="primary">Edit</Button></Link></td>
       
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
@@ -115,6 +116,7 @@ class Blogku extends Component {
                       <th scope="col">Author</th>
                       {/* {/* <th scope="col">role</th> */}
                       <th scope="col">Tanggal</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Aksi</th>
                     </tr>
                   </thead>
