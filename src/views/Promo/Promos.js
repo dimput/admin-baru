@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Card, CardBody, CardHeader, Col, Row, Table , Button } from 'reactstrap';
 import axios from 'axios';
 
 import promosData from './PromosData'
@@ -23,6 +23,8 @@ function UserRow(props) {
       <td><Link to={promoLink}>{promo.name}</Link></td>
       <td>{promo.registered}</td>
       <td>{promo.role}</td>
+
+     
       {/* <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td> */}
     </tr>
   )

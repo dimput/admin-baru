@@ -147,12 +147,13 @@ export default {
     //       name: 'Dropdowns',
     //       url: '/base/dropdowns',
     //       icon: 'icon-puzzle',
-    //     },
-    //     {
-    //       name: 'Forms',
-    //       url: '/base/forms',
-    //       icon: 'icon-puzzle',
-    //     },
+    //    }
+    ,
+        {
+          name: 'Forms',
+          url: '/base/forms',
+          icon: 'icon-puzzle',
+        },
     //     {
     //       name: 'Jumbotrons',
     //       url: '/base/jumbotrons',
