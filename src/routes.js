@@ -49,7 +49,8 @@ const BlogDetail = React.lazy(() => import('./views/Blog/BlogDetail'));
 const PWisata = React.lazy(() => import('./views/Paket/Wisata'));
 const Pemesanan = React.lazy(() => import('./views/Pemesanan/Pemesananku'));
 const DetailPemesanan = React.lazy(() => import('./views/Pemesanan/DetailPemesanan'));
-const DetailPaket = React.lazy(() => import('./views/Paket/PaketDetail'));
+const DetailPaket = React.lazy(() => import('./views/Paket/DetailPaketWisata'));
+const PaketEdit = React.lazy(() => import('./views/Paket/PaketEdit'));
 const AgentEdit = React.lazy(() => import('./views/Users/AgentEdit'));
 const Tambah = React.lazy(() => import('./views/Users/Tambah'));
 
@@ -111,7 +112,8 @@ const routes = [
   { path: '/newpost', name:'New Post' , component: NewPost},
   { path: '/edit/:id', name:'Edit Post' , component: EditPost},
   { path: '/WisataEdit/:id', exact: true, name:'Edit Tempat Wisata' , component : WisataEdit},
-  { path: '/paket-wisata/:id', exact: true, name:'Detail Paket Wisata' , component : DetailPaket},
+  { path: '/DetailPaketWisata/:id', exact: true, name:'Detail Paket Wisata' , component : DetailPaket},
+  { path: '/PaketEdit/:id', exact: true, name:'Edit Paket Wisata' , component : PaketEdit},
   { path: '/AgentEdit/:id', exact: true, name:'Edit Travel Agent' , component : AgentEdit},
   { path: '/Tambah/:id', exact: true, name:'Tambah' , component : Tambah},
 ];

@@ -44,17 +44,16 @@ function PromoTable(props) {
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}
       {/* <td><Link to={userLink}>{user.nama}</Link></td> */}
-      <th scope="row"><Link to={"paket/"+dimas}>{dimas}</Link></th>
-      <td><Link to={"paket/"+dimas}>{user.NamaPaket} {getBadge(user.isDelete)}</Link></td>
+      <th scope="row"><Link to={"DetailPaketWisata/"+user.IdPaket}>{dimas}</Link></th>
+      <td><Link to={"DetailPaketWisata/"+user.IdPaket}>{user.NamaPaket} {getBadge(user.isDelete)}</Link></td>
       {/* <td>{user.Catatan}</td> */}
       {/* <td>{user.FasilitasTiket}</td>
       <td>{user.FasilitasTourGuide}</td>
       <td>{user.FasilitasTransportasi}</td> */}
       <td><CurrencyFormat value={user.Harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} /></td>
-      <td>
-        <Link to={"/"+dimas}><Button size="small" color="primary" style={{marginRight:"5px"}}>Edit</Button></Link>
-        <Link to="/"><Button size="small" color="danger">Delete</Button></Link>
-      </td>
+      <td><Link to={"PaketEdit/"+user.IdPaket}><Button color="primary">Edit</Button></Link></td>
+      <td><Button color="danger" size="sm"><i className="material-icons">delete</i></Button></td>
+    
       {/* <td>{user.Informasi}</td>
       <td>{user.JadwalHari1}</td>
       <td>{user.JadwalHari2}</td>
@@ -130,7 +129,8 @@ class Wisata extends Component {
                       {/* <th scope="col">Tour Gade</th>
                       <th scope="col">Transportasi</th> */}
                       <th scope="col">Harga</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Hapus</th>
                       {/* <th scope="col">Informasi</th>
                       <th scope="col">Hari 1</th>
                       <th scope="col">Hari 2</th>

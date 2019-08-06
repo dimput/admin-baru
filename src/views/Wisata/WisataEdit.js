@@ -133,7 +133,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getId()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                   
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -142,7 +142,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getKategoriID()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                   
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -151,7 +151,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="text" id="text-input" name="text-input" placeholder="Text" value={this.getNama()}/>
-                    <FormText color="muted">Ini</FormText>
+                  
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -160,7 +160,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getAlamat()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                  
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -169,7 +169,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getDeskripsi()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                  
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -178,7 +178,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getHarga()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                   
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -187,7 +187,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getTiket()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                   
                   </Col>
                 </FormGroup>
                 
@@ -197,7 +197,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getDeskripsi()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+                  
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -206,7 +206,7 @@ class WisataEdit extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" value={this.getGambar()}/>
-                    <FormText className="help-block">Please enter your email</FormText>
+               
                   </Col>
                 </FormGroup>
                 <FormGroup row>
