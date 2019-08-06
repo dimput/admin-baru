@@ -16,4 +16,10 @@ var config = {
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
+
+const databaseRef = firebase.database().ref();
+export const infoRef = databaseRef.child("agents");
+export const todosRef = databaseRef.child("agents");
+export const requestsRef = databaseRef.child("Requests");
+
 export default firebase     

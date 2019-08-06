@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardHeader, Col, Row, Table , Button} from 'reactstrap';
 import axios from 'axios';
+import firebase from './../../config/fbConfig'
+
 // import firebase from './../../config/fbConfig'
 
 // function UserRow(props) {
@@ -29,7 +31,7 @@ import axios from 'axios';
 
 //baru
 function PromoTable(props) {
-  const user = props.user
+  const user = props.user;
   
   // const userLink = `/users/${user.id}`
   
@@ -40,11 +42,22 @@ function PromoTable(props) {
   //         status === 'Banned' ? 'danger' :
   //           'primary'
   // }
+  
+  const handleRespon = () => {
+    firebase.database().ref('Requests/1564972953773').update(
+      {"statusPesanan" : "Sudah direspon"}
+    );
+    console.log( firebase.database().ref('Requests/1564972953773').update(
+      {"statusPesanan" : "Sudah direspon"}
+    ))
+  }
+
   const getButton= (status) => {
-    return status === 'Belum Di Respon' ? <Button color="success">Respon</Button> :
+    return status === 'Belum Di Respon' ? <Button color="success" onClick={handleRespon}>Respon</Button> :
       '-'
   }
-  const {dimas} = props
+  const {dimas} = props;
+  
   return (
     <tr>
       {/* <th scope="row"><Link to={userLink}>{user.id}</Link></th> */}

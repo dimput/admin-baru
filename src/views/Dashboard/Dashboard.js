@@ -18,7 +18,16 @@ import {
   Table,
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
+
+import _ from "lodash";
+import { connect } from "react-redux";
+import * as actions from "./../../actions";
+import Model from './Model'
+import Customer from './Customer'
+import Posts from './Customer'
+import Destinations from './Customer'
+import Requests from './Requests'
 
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
 
@@ -481,30 +490,22 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="12" sm="6" lg="3">
-            <Card className="text-white bg-info">
-              <CardBody className="pb-0">
-                <ButtonGroup className="float-right">
-                  <ButtonDropdown id='card1' isOpen={this.state.card1} toggle={() => { this.setState({ card1: !this.state.card1 }); }}>
-                    {/* <DropdownToggle caret className="p-0" color="transparent">
-                      <i className="icon-settings"></i>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another action</DropdownItem>
-                      <DropdownItem disabled>Disabled action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                    </DropdownMenu> */}
-                  </ButtonDropdown>
-                </ButtonGroup>
-                <div className="text-value">9.823</div>
-                <div>CUSTOMERS</div>
-              </CardBody>
-              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                <Line data={cardChartData2} options={cardChartOpts2} height={70} />
-              </div>
-            </Card>
-          </Col>
+          
+        {/* <Col xs="12" sm="6" lg="3">
+          <Customer/>
+        </Col>
+        <Col xs="12" sm="6" lg="3">
+          <Posts/>
+        </Col>
+        <Col xs="12" sm="6" lg="3">
+          <Destinations/>
+        </Col>
+        <Col xs="12" sm="6" lg="3">
+          <Requests/>
+        </Col> */}
+        <Col xs="12" sm="6" lg="3">
+          <Customer/>
+        </Col>
 
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-primary">
@@ -1123,4 +1124,11 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+// export default Dashboard;
+const mapStateToProps = ({ data }) => {
+  return {
+    data
+  };
+};
+
+export default connect(mapStateToProps, actions)(Dashboard);
