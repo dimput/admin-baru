@@ -1,4 +1,4 @@
-import { todosRef,infoRef,requestsRef } from "../config/fbConfig";
+import { todosRef,infoRef,requestsRef,pemesananRef } from "../config/fbConfig";
 import { FETCH_TODOS } from "./types";
 
 export const addToDo = newToDo => async dispatch => {
@@ -36,6 +36,17 @@ export const fetchRequests = () => async dispatch => {
       datanya: snapshot.numChildren()
     });
     console.log("number : "+snapshot.numChildren());
+  });
+  
+};
+
+export const fetchPemesanan = () => async dispatch => {
+  pemesananRef.on("value", snapshot => {
+    dispatch({
+      type: FETCH_TODOS,
+      datanya: snapshot.val()
+    });
+    console.log(snapshot.val());
   });
   
 };

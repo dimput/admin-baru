@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardHeader, Col, Row, Table , Button} from 'reactstrap';
+
+import { connect } from "react-redux";
+import { Card, CardBody, CardHeader, Col, Row, Table , Button, ButtonDropdown,ButtonGroup} from 'reactstrap';
 import axios from 'axios';
-import firebase from './../../config/fbConfig'
+import _ from "lodash";
+import firebase from './../../config/fbConfig';
+import * as actions from "./../../actions";
 
 // import firebase from './../../config/fbConfig'
 
@@ -44,12 +48,9 @@ function PromoTable(props) {
   // }
   
   const handleRespon = () => {
-    firebase.database().ref('Requests/1564972953773').update(
+    firebase.database().ref('Requests/'+user.id).update(
       {"statusPesanan" : "Sudah direspon"}
     );
-    console.log( firebase.database().ref('Requests/1564972953773').update(
-      {"statusPesanan" : "Sudah direspon"}
-    ))
   }
 
   const getButton= (status) => {
@@ -114,6 +115,32 @@ class Pemesananku extends Component {
 
   }
 
+  renderCostumers() {
+    // console.log("babiiii");
+    const { dataku } = this.props;
+        const toDos = _.map(dataku, (value, key) => {
+          // console.log(show);
+          return <PromoTable key={key} user={value} dimas={key}/>;
+        });
+        console.log(toDos);
+        if (!_.isEmpty(toDos)) {
+          return toDos;
+        }
+        if(toDos==null){
+          return (
+            <div>
+                Please Wait . . .
+            </div>
+          );
+        }
+      // return dimput;
+}
+
+  componentWillMount() {
+    this.props.fetchPemesanan();
+    console.log("asuuuuuu")
+  }
+
   render() {
     return (
       <div className="animated fadeIn">
@@ -139,10 +166,7 @@ class Pemesananku extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.personku.map((user, index) =>
-                      // <UserRow key={index} user={user} />
-                      <PromoTable key={index} user={user} dimas={index}/>
-                    )}
+                    {this.renderCostumers()}
                   </tbody>
                 </Table>
 
@@ -154,5 +178,11 @@ class Pemesananku extends Component {
     )
   }
 }
+const mapStateToProps = ( state ) => {
+  return {
+      dataku : state.dataDimas.dataku
+  };
+};
 
-export default Pemesananku;
+
+export default connect(mapStateToProps, actions)(Pemesananku);

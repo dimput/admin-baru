@@ -270,62 +270,168 @@ class Tambah extends Component {
       <div>
         <CardBody>
           <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-            <FormGroup row>
-              <Col md="3">
-                <Label htmlFor="email-input">Nama Lengkap</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Input type="text" id="email-input" name="name" placeholder="Masukkan Nama Pemilik" autoComplete="name" />
-              </Col>
-            </FormGroup>
+          <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">id</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" />
+                   
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">KategoriID</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" />
+                   
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="text-input">Nama Wisata</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="text" id="text-input" name="text-input" placeholder="Text"/>
+                  
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Alamat</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Enter Alamat" autoComplete="email" />
+                  
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Deskripsi</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Enter Deskripsi" autoComplete="email" />
+                  
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Harga</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Harga" autoComplete="email" />
+                   
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Tiket</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder=" Tiket" autoComplete="email" />
+                   
+                  </Col>
+                </FormGroup>
+                
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Deskripsi</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email" />
+                  
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="email-input">Gambar</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="email" id="email-input" name="email-input" placeholder="Copy Link Gambar" autoComplete="email"/>
+               
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label>Fasilitas Masjid</Label>
+                  </Col>
+                  <Col md="9">
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio1" name="inline-radios" value="option1" />
+                      <Label className="form-check-label" check htmlFor="inline-radio1">Tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio2" name="inline-radios" value="option2" />
+                      <Label className="form-check-label" check htmlFor="inline-radio2">Belum tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio3" name="inline-radios" value="option3" />
+                      <Label className="form-check-label" check htmlFor="inline-radio3">Jauh</Label>
+                    </FormGroup>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label>Fasilitas Parkir</Label>
+                  </Col>
+                  <Col md="9">
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio1" name="inline-radios" value="option1" />
+                      <Label className="form-check-label" check htmlFor="inline-radio1">Tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio2" name="inline-radios" value="option2" />
+                      <Label className="form-check-label" check htmlFor="inline-radio2">Belum tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio3" name="inline-radios" value="option3" />
+                      <Label className="form-check-label" check htmlFor="inline-radio3">Luas</Label>
+                    </FormGroup>
+                  </Col>
+                </FormGroup>
+                 
+                <FormGroup row>
+                  <Col md="3">
+                    <Label>Fasilitas Toilet</Label>
+                  </Col>
+                  <Col md="9">
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio1" name="inline-radios" value="option1" />
+                      <Label className="form-check-label" check htmlFor="inline-radio1">Tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio2" name="inline-radios" value="option2" />
+                      <Label className="form-check-label" check htmlFor="inline-radio2">Belum tersedia</Label>
+                    </FormGroup>
+                    <FormGroup check inline>
+                      <Input className="form-check-input" type="radio" id="inline-radio3" name="inline-radios" value="option3" />
+                      <Label className="form-check-label" check htmlFor="inline-radio3">Bersih Terawat</Label>
+                    </FormGroup>
+                  </Col>
+                </FormGroup>
 
-            <FormGroup row>
-              <Col md="3">
-                <Label htmlFor="email-input">Alamat</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Input type="text" id="email-input" name="address" placeholder="Masukkan Alamat Usaha" />
-              </Col>
-            </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="file-input">File input</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="file" id="file-input" name="file-input" />
+                  </Col>
+                </FormGroup>
+                
+                <FormGroup row hidden>
+                  <Col md="3">
+                    <Label className="custom-file" htmlFor="custom-file-input">Custom file input</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Label className="custom-file">
+                      <Input className="custom-file" type="file" id="custom-file-input" name="file-input" />
+                      <span className="custom-file-control"></span>
+                    </Label>
+                  </Col>
+                </FormGroup>
 
-            <FormGroup row>
-              <Col md="3">
-                <Label htmlFor="email-input">Email</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Input type="email" id="email-input" name="email-input" placeholder="Masukkan Email" autoComplete="email" />
-              </Col>
-            </FormGroup>
-
-            <FormGroup row>
-              <Col md="3">
-                <Label htmlFor="email-input">Password</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Input type="password" name="password" placeholder="Masukkan Password" />
-              </Col>
-            </FormGroup>
-
-            <FormGroup row>
-              <Col md="3">
-                <Label htmlFor="file-input">Foto 4x4</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Input type="file" id="file-input" name="file-input" />
-              </Col>
-            </FormGroup>
-
-            <FormGroup row hidden>
-              <Col md="3">
-                <Label className="custom-file" htmlFor="custom-file-input">Custom file input</Label>
-              </Col>
-              <Col xs="12" md="9">
-                <Label className="custom-file">
-                  <Input className="custom-file" type="file" id="custom-file-input" name="file-input" />
-                  <span className="custom-file-control"></span>
-                </Label>
-              </Col>
-            </FormGroup>
           </Form>
         </CardBody>
         <CardFooter>
@@ -342,48 +448,88 @@ class Tambah extends Component {
           <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="email-input">Nama Lengkap</Label>
+                <Label htmlFor="email-input">Id Paket</Label>
               </Col>
               <Col xs="12" md="9">
-                <Input type="text" id="email-input" name="name" placeholder="Masukkan Nama Pemilik" autoComplete="name" />
+                <Input type="text" id="email-input" name="name" placeholder="Id Paket" autoComplete="name" />
               </Col>
             </FormGroup>
 
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="email-input">Alamat</Label>
+                <Label htmlFor="email-input">Jenis Kenderaan</Label>
               </Col>
               <Col xs="12" md="9">
-                <Input type="text" id="email-input" name="address" placeholder="Masukkan Alamat Usaha" />
+                <Input type="text" id="email-input" name="address" placeholder="Jenis nya apa" />
               </Col>
             </FormGroup>
 
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="email-input">Email</Label>
+                <Label htmlFor="email-input">JadwalHari1</Label>
               </Col>
               <Col xs="12" md="9">
-                <Input type="email" id="email-input" name="email-input" placeholder="Masukkan Email" autoComplete="email" />
+                <Input type="email" id="email-input" name="email-input" placeholder="Hari 1 ngapain aja" autoComplete="email" />
               </Col>
             </FormGroup>
 
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="email-input">Password</Label>
+                <Label htmlFor="email-input">JadwalHari2</Label>
               </Col>
               <Col xs="12" md="9">
-                <Input type="password" name="password" placeholder="Masukkan Password" />
+                <Input type="email" id="email-input" name="email-input" placeholder="Hari 2 ngapain aja"autoComplete="email" />
               </Col>
             </FormGroup>
 
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="file-input">Foto 4x4</Label>
+                <Label htmlFor="email-input">JadwalHari3</Label>
               </Col>
               <Col xs="12" md="9">
-                <Input type="file" id="file-input" name="file-input" />
+                <Input type="email" id="email-input" name="email-input" placeholder="Hari 3 ngapain aja" autoComplete="email" />
               </Col>
             </FormGroup>
+
+            <FormGroup row>
+              <Col md="3">
+                <Label htmlFor="email-input">Keterangan</Label>
+              </Col>
+              <Col xs="12" md="9">
+                <Input type="email" id="email-input" name="email-input" placeholder="Keterangannya apa" autoComplete="email" />
+              </Col>
+            </FormGroup>
+
+
+            
+            <FormGroup row>
+              <Col md="3">
+                <Label htmlFor="email-input">Fasilitas Penginapan</Label>
+              </Col>
+              <Col xs="12" md="9">
+                <Input type="email" id="email-input" name="email-input" placeholder="Nginap dimana" autoComplete="email" />
+              </Col>
+            </FormGroup>
+
+            <FormGroup row>
+              <Col md="3">
+                <Label htmlFor="email-input">Fasilitas Tiket</Label>
+              </Col>
+              <Col xs="12" md="9">
+                <Input type="email" id="email-input" name="email-input" placeholder="Tiketnya gimana" autoComplete="email" />
+              </Col>
+            </FormGroup>
+
+            <FormGroup row>
+              <Col md="3">
+                <Label htmlFor="email-input">Fasilitas Transportasi</Label>
+              </Col>
+              <Col xs="12" md="9">
+                <Input type="email" id="email-input" name="email-input" placeholder="Pakai Apa" autoComplete="email" />
+              </Col>
+            </FormGroup>
+
+         
 
             <FormGroup row hidden>
               <Col md="3">

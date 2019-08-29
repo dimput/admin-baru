@@ -3,7 +3,8 @@ import ReactQuill from "react-quill";
 import {
   Card, CardBody, CardHeader, Form, FormInput, Button, Col, Row,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
+  Alert
 } from "shards-react";
 
 import "react-quill/dist/quill.snow.css";
@@ -16,7 +17,8 @@ class Editorku extends Component {
     super(props);
     this.state = {
       konten: "",
-      judul: ""
+      judul: "",
+      code : false
     };
     this.wow = ""
   }
@@ -28,6 +30,29 @@ class Editorku extends Component {
       "konten":this.state.konten,
       "status" :"Publish"
     });
+    this.saveBerhasil();
+  }
+
+  renderDraft = (e) => {
+    const { user } = this.props;
+    e.preventDefault();
+    firebase.database().ref("blogs/"+user).update({
+      "judul":this.state.judul,
+      "konten":this.state.konten,
+      "status" :"Draft"
+    });
+    this.saveBerhasil();
+  }
+
+  saveBerhasil = () => {
+    this.setState({
+      code: true
+    })
+  }
+  renderCode(){
+    if (this.state.code) {
+      return <Alert color="success">Data berhasil disimpan !</Alert>
+    }
   }
 
   componentDidMount() {
@@ -89,7 +114,8 @@ class Editorku extends Component {
             <Form className="add-new-post" onSubmit={this.renderIsi}>
               <CardBody>
                 <FormInput size="lg" className="mb-3" value={this.state.judul} onChange={this.handleChangeku} />
-                <ReactQuill className="add-new-post__editor mb-1" value={this.state.konten} onChange={this.handleChange} />
+                <FormInput size="lg" className="mb-3" value={this.state.image} onChange={this.handleChangeku} />
+                 <ReactQuill className="add-new-post__editor mb-1" value={this.state.konten} onChange={this.handleChange} />
               </CardBody>
             </Form>
             <br />
@@ -112,9 +138,12 @@ class Editorku extends Component {
                     <i className="material-icons mr-1">people</i>
                     <strong className="mr-1">Author:</strong> {this.state.author}
                   </span>
+                  <span className="d-flex mb-2">
+                    {this.renderCode()}
+                  </span>
                 </ListGroupItem>
                 <ListGroupItem className="d-flex px-3 border-0">
-                  <Button color="info" size="sm">
+                  <Button color="info" size="sm" onClick={this.renderDraft}>
                     Save Draft
                   </Button>
                   <Button color="primary" size="sm" className="ml-auto" onClick={this.renderIsi}>
